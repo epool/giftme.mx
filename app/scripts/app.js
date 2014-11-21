@@ -27,9 +27,17 @@ angular
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/GiftExchange', {
+        templateUrl: 'views/gift-exchange.html',
+        controller: 'GiftExchangeCtrl'
+      })
       .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
+      })
+      .when('/gift-exchange', {
+        templateUrl: 'views/gift-exchange.html',
+        controller: 'GiftExchangeCtrl'
       })
       .otherwise({
         redirectTo: '/'
