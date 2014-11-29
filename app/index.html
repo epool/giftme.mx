@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <base href="/">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Giftme</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild-->
+
+  <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+  <!-- build:vulcanized elements/elements.vulcanized.html -->
+  <link rel="import" href="elements/elements.html">
+  <!-- endbuild-->
+</head>
+
+<body ng-app="giftmemxApp" ng-controller="AppCtrl" unresolved>
+
+  <core-drawer-panel id="drawerPanel">
+    <core-header-panel drawer>
+    
+      <core-toolbar id="navheader">
+        <span>Menu</span>
+      </core-toolbar>
+      <core-selector selectedAttribute="">
+        <paper-item ng-click="goTo('/')">Exchange</paper-item>
+        <paper-item ng-click="goTo('/about')">About</paper-item>
+      </core-selector>
+    </core-header-panel>
+    
+    <core-scroll-header-panel main condenses keepCondensedHeader>
+
+      <core-toolbar class="tall">
+        <paper-icon-button id="navicon" icon="menu" ng-click="togglePanel()"></paper-icon-button>
+        <div flex></div>
+        <core-icon-button icon="search" ng-show="false"></core-icon-button>
+        <core-icon-button icon="more-vert" ng-show="false"></core-icon-button>
+        <div class="bottom indent title">Giftme</div>
+      </core-toolbar>
+  
+      <div class="content">
+        <div ng-view="">
+        </div>
+      </div>
+      
+      <footer>
+        Giftme Team.
+      </footer>
+      
+    </core-scroll-header-panel>
+    
+  </core-drawer-panel>
+
+  <!-- build:js scripts/app.js -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-aria/angular-aria.js"></script>
+  <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="bower_components/angular-messages/angular-messages.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/angular-touch/angular-touch.js"></script>
+  
+  <script src="scripts/app.js"></script>
+  <script src="scripts/angularApp.js"></script>
+  <script src="scripts/controllers/main.js"></script>
+  <script src="scripts/controllers/about.js"></script>
+  <!-- endbuild-->
+</body>
+
+</html>
