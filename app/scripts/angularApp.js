@@ -17,7 +17,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ng-polymer-elements'
   ])
   .constant('ServerUrl', 'http://epool.koding.io')
   .config(function ($routeProvider, $locationProvider) {
@@ -33,7 +34,7 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-      
+
       // use the HTML5 History API
       $locationProvider.html5Mode(true);
   })
@@ -42,13 +43,25 @@ angular
       $location.path(path);
       $scope.togglePanel();
     };
-    
+
     $scope.togglePanel = function() {
       var drawerPanel = document.getElementById('drawerPanel');
       drawerPanel.togglePanel();
     };
-    
-    $scope.isActive = function (viewLocation) {
-      return viewLocation === $location.path();
+
+    $scope.getIndexSelected = function () {
+      var indexSelected = 0;
+      switch ($location.path()) {
+        case '/':
+          indexSelected = 0;
+          break;
+        case '/about':
+          indexSelected = 1;
+          break;
+        default:
+          indexSelected = 0;
+      }
+      return indexSelected;
     };
+    $scope.indexSelected = $scope.getIndexSelected();
   });
